@@ -1,0 +1,53 @@
+#include<iostream>
+using namespace std;
+
+class TableBooking {
+private:
+	const int tableNo;
+	static string ResName;
+	string CustName;
+	int NoGuest;
+public:
+	TableBooking(int n):tableNo(n) {
+
+	}
+	void setCust(string name) {
+		CustName = name;
+	}
+	void setNoGuest(int no) {
+		NoGuest = no;
+	}
+	string getCust() {
+		return CustName;
+	}
+	int getNoGuest() {
+		return NoGuest;
+	}
+	static string ResNam() {
+		return ResName;
+	}
+	void display()const {
+		cout << "=== Booking Details ===" << endl;
+		cout << "Restaurant Name: " << ResNam() << endl;
+		cout << "Table #: " << tableNo << endl;
+		cout << "Customer Name: " << CustName << endl;
+		cout << "No of Guests: " << NoGuest << endl << endl;
+	}
+	~TableBooking(){
+		cout << "Booking Completed, Table is free!" << endl;
+	}
+
+};
+
+string TableBooking::ResName = "FoodCloud";
+
+int main() {
+
+	TableBooking t(101);
+	t.setCust("Wariha");
+	t.setNoGuest(3);
+	t.display();
+
+
+	return 0;
+}
